@@ -68,8 +68,8 @@ export default {
         'roboto-bold': ['Roboto', 'sans-serif'],
         'roboto-medium': ['Roboto', 'sans-serif'],
         'roboto-italic': ['Roboto', 'sans-serif'],
-        'thino-thin': ['Roboto', 'sans-serif'], // Using Roboto as fallback since Thino may not be available
-        'thino-bold': ['Roboto', 'sans-serif'],
+        'thino-thin': ['Thino', 'sans-serif'],
+        'thino-bold': ['Thino', 'sans-serif'],
       },
       fontWeight: {
         'roboto-medium': '500',
@@ -99,10 +99,15 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 1s ease-out",
       },
     },
   },

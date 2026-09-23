@@ -2,10 +2,11 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import WhatWeDo from "@/components/WhatWeDo";
 import Services from "@/components/Services";
-import WhyChooseModi from "@/components/WhyChooseModi";
-import HowWeWork from "@/components/HowWeWork";
+import ProjectTracking from "@/components/ProjectTracking";
 import OurTeam from "@/components/OurTeam";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -15,11 +16,12 @@ const Index = () => {
       <Header />
       <HeroSection />
       <WhatWeDo />
+      <ProjectTracking />
       <Services />
-      <WhyChooseModi />
-      <HowWeWork />
-      <OurTeam />
       <Portfolio />
+      <Testimonials />
+      <OurTeam />
+      <FAQ />
       <ContactSection />
       <Footer />
     </div>

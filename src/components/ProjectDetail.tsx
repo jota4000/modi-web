@@ -26,7 +26,7 @@ const ProjectDetail = ({ project, open, onClose }: ProjectDetailProps) => {
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-roboto-bold text-primary gradient-text">
+          <DialogTitle className="text-2xl font-roboto-bold text-primary">
             {project.title}
           </DialogTitle>
           <p className="text-sm text-accent font-roboto-medium uppercase tracking-wide">

@@ -23,10 +23,10 @@ const Header = () => {
   };
 
   const menuItems = [
-    { id: 'what-we-do', label: 'Qué Hacemos' },
-    { id: 'services', label: 'Servicios' },
-    { id: 'portfolio', label: 'Portafolio' },
-    { id: 'team', label: 'Equipo' },
+    { id: 'what-we-do', label: 'Cómo Trabajamos' },
+    { id: 'services', label: 'Proyectos' },
+    { id: 'team', label: 'Nosotros' },
+    { id: 'contact', label: 'Contacto' },
   ];
 
   return (
@@ -43,7 +43,21 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-7">
+            {menuItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-white/80 hover:text-accent text-sm font-roboto-medium tracking-wide uppercase transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          <div className="h-5 w-px bg-white/20" />
+
           <Button
             onClick={() => scrollToSection('contact')}
             className="cta-button"
@@ -51,44 +65,6 @@ const Header = () => {
           >
             COTIZAR
           </Button>
-          
-          <Button
-            onClick={openWhatsApp}
-            variant="outline"
-            size="sm"
-            className="border-accent text-accent hover:bg-accent hover:text-primary"
-          >
-            <MessageCircle className="mr-2 h-4 w-4" />
-            Contacto
-          </Button>
-
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="text-white hover:bg-accent/20"
-              >
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="bg-primary border-accent/20">
-              <SheetHeader>
-                <SheetTitle className="text-white font-thino-bold text-2xl">Navegación</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col gap-4 mt-8">
-                {menuItems.map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-left text-white hover:text-accent text-lg font-roboto-medium transition-colors py-2 border-b border-accent/20"
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
 
         {/* Mobile Navigation */}
@@ -122,7 +98,7 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent className="bg-primary border-accent/20">
               <SheetHeader>
-                <SheetTitle className="text-white font-thino-bold text-2xl">Navegación</SheetTitle>
+                <SheetTitle className="text-white font-roboto-bold text-2xl">Navegación</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-8">
                 {menuItems.map((item) => (

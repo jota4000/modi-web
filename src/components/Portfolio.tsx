@@ -1,7 +1,6 @@
 import { useState } from "react";
 import ProjectDetail from "./ProjectDetail";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "./ui/button";
+import Reveal from "@/components/Reveal";
 import cocinaMosqueraAntes from "@/assets/cocina-mosquera-antes.jpg";
 import cocinaTio2 from "@/assets/cocina-tio-2.jpg";
 import portafolioCocina from "@/assets/portafolio-cocina-tio.jpg";
@@ -23,8 +22,6 @@ import oficinaTnvs3 from "@/assets/oficina-tnvs-3.jpg";
 
 const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
 
   const portfolioItems = [
     { 
@@ -100,275 +97,68 @@ const Portfolio = () => {
       videoLink: "https://vt.tiktok.com/ZSyFrsv6d/",
       isDesignOnly: true
     },
-    { 
-      id: 7, 
-      title: "Futuro proyecto 1",
-      category: "Diseño Interior",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Crear un dormitorio sereno y elegante con un vestidor integrado y baño en suite moderno.",
-      development: "Desarrollamos un espacio relajante con paleta de colores suaves, textiles de lujo y iluminación indirecta. El vestidor incluye sistemas de organización personalizados.",
-      location: "Pereira, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 8, 
-      title: "Futuro proyecto 2",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Transformar una terraza sin uso en un espacio de entretenimiento al aire libre con cocina exterior.",
-      development: "Instalamos pisos de madera resistente, cocina modular de acero inoxidable, pérgola bioclimática y zona lounge con iluminación ambiental.",
-      location: "Santa Marta, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 9, 
-      title: "Futuro proyecto 3",
-      category: "Diseño",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Diseñar un consultorio médico moderno que transmita profesionalismo y genere confianza en los pacientes.",
-      development: "Creamos espacios funcionales con sala de espera confortable, consultorios equipados con tecnología y acabados sanitarios de alta calidad.",
-      location: "Manizales, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 10, 
-      title: "Futuro proyecto 4",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Optimizar un apartamento pequeño para maximizar espacio y funcionalidad sin sacrificar estilo.",
-      development: "Implementamos soluciones de almacenamiento vertical, muebles multifuncionales y espejos estratégicos para ampliar visualmente el espacio.",
-      location: "Bogotá, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 11, 
-      title: "Futuro proyecto 5",
-      category: "Diseño",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Crear un ambiente único para un restaurante que combine elegancia con calidez y funcionalidad.",
-      development: "Diseñamos un layout que optimiza el flujo de servicio, con iluminación focal, mobiliario cómodo y detalles decorativos que reflejan la identidad gastronómica.",
-      location: "Medellín, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 12, 
-      title: "Futuro proyecto 6",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Transformar una habitación en una biblioteca acogedora con espacio de lectura y trabajo.",
-      development: "Instalamos estanterías a medida, iluminación dirigida para lectura, escritorio empotrado y sillón de lectura con lámpara de pie.",
-      location: "Cali, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 13, 
-      title: "Futuro proyecto 7",
-      category: "Diseño Interior",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Crear un espacio recreativo para toda la familia con zona de juegos y entretenimiento multimedia.",
-      development: "Desarrollamos un diseño colorido y funcional con almacenamiento para juegos, sistema de home theater y mobiliario versátil para diferentes actividades.",
-      location: "Barranquilla, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 14, 
-      title: "Futuro proyecto 8",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Modernizar la fachada de una vivienda tradicional para darle un aspecto contemporáneo.",
-      development: "Aplicamos revestimiento moderno, actualizamos ventanería, añadimos iluminación arquitectónica y renovamos el jardín frontal con diseño paisajístico.",
-      location: "Cartagena, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 15, 
-      title: "Futuro proyecto 9",
-      category: "Diseño Interior",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Convertir un sótano en un gimnasio privado completamente equipado con zona de yoga.",
-      development: "Instalamos pisos especiales para ejercicio, espejos de pared completa, iluminación energizante y ventilación optimizada. Incluye área separada para yoga con iluminación suave.",
-      location: "Bucaramanga, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 16, 
-      title: "Futuro proyecto 10",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Optimizar un espacio pequeño de lavandería para hacerlo más funcional y organizado.",
-      development: "Instalamos gabinetes superiores, encimera de trabajo, área de planchado plegable y sistema de almacenamiento para productos de limpieza.",
-      location: "Pereira, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 17, 
-      title: "Futuro proyecto 11",
-      category: "Diseño",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Diseñar una boutique de ropa con identidad única que resalte los productos y mejore la experiencia de compra.",
-      development: "Creamos un espacio con probadores amplios, iluminación premium, exhibidores personalizados y punto de pago integrado con la decoración.",
-      location: "Santa Marta, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
-    { 
-      id: 18, 
-      title: "Futuro proyecto 12",
-      category: "Remodelación",
-      beforeImage: "/placeholder.svg",
-      afterImage: "/placeholder.svg",
-      clientWanted: "Renovar completamente el área de piscina y crear un espacio social moderno para reuniones familiares.",
-      development: "Renovamos el acabado de la piscina, instalamos deck de madera, área de bar exterior, zona lounge con fogata y sistema de iluminación LED subacuática.",
-      location: "Manizales, Colombia",
-      videoLink: "https://www.instagram.com/modi.col"
-    },
   ];
 
-  const selectedProjectData = selectedProject 
+  const selectedProjectData = selectedProject
     ? portfolioItems.find(item => item.id === selectedProject) || null
     : null;
 
-  const totalPages = Math.ceil(portfolioItems.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentItems = portfolioItems.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const featured = portfolioItems.slice(0, 2);
+  const rest = portfolioItems.slice(2);
 
   return (
     <section id="portfolio" className="section-padding bg-background">
       <div className="container-max">
-        <h2 className="heading-lg text-center gradient-text mb-8">Portafolio</h2>
-        
-        {/* Pagination Controls - Top */}
-        <div className="flex items-center justify-center gap-4 mb-8">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="h-10 w-10"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          
-          <div className="flex gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <Button
-                key={page}
-                variant={currentPage === page ? "default" : "outline"}
-                size="icon"
-                onClick={() => handlePageChange(page)}
-                className="h-10 w-10"
-              >
-                {page}
-              </Button>
-            ))}
-          </div>
-          
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="h-10 w-10"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
+        <Reveal className="max-w-2xl mx-auto text-center mb-16">
+          <p className="text-sm font-roboto-medium tracking-widest uppercase text-accent mb-3">Nuestro trabajo</p>
+          <h2 className="heading-lg text-primary mb-6">Espacios que ya transformamos.</h2>
+          <p className="body-lg text-muted-foreground leading-relaxed">
+            Cada proyecto parte de necesidades diferentes. Conoce algunas de las transformaciones que hemos realizado junto a nuestros clientes.
+          </p>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentItems.map((item) => (
-            <div 
-              key={item.id} 
-              className="group cursor-pointer"
-              onClick={() => setSelectedProject(item.id)}
-            >
-              <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 mb-4 relative">
-                {item.previewImage ? (
-                  <img 
-                    src={item.previewImage} 
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-accent/10 group-hover:from-primary/20 group-hover:to-accent/20 transition-all duration-300">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-white/50 flex items-center justify-center">
-                        <span className="text-2xl">🏠</span>
-                      </div>
-                      <p className="font-roboto-medium text-primary">Vista Previa del Proyecto</p>
-                    </div>
-                  </div>
-                )}
+        {/* Destacados */}
+        <div className="grid md:grid-cols-2 gap-8 mb-8">
+          {featured.map((item, index) => (
+            <Reveal key={item.id} delay={index * 150} className="group cursor-pointer" onClick={() => setSelectedProject(item.id)}>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                <img
+                  src={item.previewImage}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-roboto-medium text-primary">
+                  {item.isDesignOnly ? "Diseño" : "Antes · Después"}
+                </span>
               </div>
-              
-              <h3 className="font-roboto-bold text-primary mb-2">{item.title}</h3>
-              <p className="text-sm text-accent font-roboto-medium uppercase tracking-wide">
-                {item.category}
-              </p>
-            </div>
+              <h3 className="font-roboto-bold text-primary text-lg mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground mb-2">{item.location} · {item.category}</p>
+              <span className="text-sm font-roboto-bold text-accent group-hover:underline inline-flex items-center gap-1">
+                Ver proyecto <span aria-hidden="true">→</span>
+              </span>
+            </Reveal>
           ))}
         </div>
-        
-        {/* Pagination Controls - Bottom */}
-        <div className="flex items-center justify-center gap-4 mt-12">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="h-10 w-10"
-          >
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-          
-          <div className="flex gap-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <Button
-                key={page}
-                variant={currentPage === page ? "default" : "outline"}
-                size="icon"
-                onClick={() => handlePageChange(page)}
-                className="h-10 w-10"
-              >
-                {page}
-              </Button>
-            ))}
-          </div>
-          
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="h-10 w-10"
-          >
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
 
-        <div className="text-center mt-8">
-          <p className="text-muted-foreground mb-6">
-            Ve nuestro portafolio completo que muestra renders, planos y proyectos completados.
-          </p>
+        {/* Resto */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          {rest.map((item, index) => (
+            <Reveal key={item.id} delay={index * 100} className="group cursor-pointer" onClick={() => setSelectedProject(item.id)}>
+              <div className="relative aspect-square rounded-xl overflow-hidden mb-3">
+                <img
+                  src={item.previewImage}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <h3 className="font-roboto-medium text-primary text-sm mb-0.5 leading-snug">{item.title}</h3>
+              <p className="text-xs text-accent font-roboto-medium uppercase tracking-wide">{item.category}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
 
-      <ProjectDetail 
+      <ProjectDetail
         project={selectedProjectData}
         open={selectedProject !== null}
         onClose={() => setSelectedProject(null)}

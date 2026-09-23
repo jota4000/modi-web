@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import Reveal from "@/components/Reveal";
+import fondoContacto from "@/assets/diseno-sala-despues-mosquera.jpg";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -67,13 +69,32 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-white to-gray-50">
-      <div className="container-max">
-        <h2 className="heading-lg text-center gradient-text mb-16">
-          Trabajemos Juntos
-        </h2>
+    <section id="contact" className="bg-gradient-to-b from-white to-gray-50">
+      {/* Encabezado con foto — mismo mensaje de cierre, ahora unido al formulario */}
+      <div className="relative overflow-hidden py-24 md:py-28">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${fondoContacto})` }}
+        />
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="relative container-max px-6 text-center">
+          <Reveal className="max-w-2xl mx-auto">
+            <p className="text-sm font-roboto-medium tracking-widest uppercase text-accent mb-3">Contacto</p>
+            <h2 className="heading-lg text-white mb-6 leading-tight">
+              ¿Tienes un espacio que quieres transformar?
+            </h2>
+            <p className="body-lg text-white/70 leading-relaxed mb-2">
+              Cuéntanos qué tienes en mente. Conozcamos tu proyecto y revisemos juntos cómo hacerlo realidad.
+            </p>
+            <p className="text-white/50 text-sm">
+              Remodelaciones y diseño interior en Bogotá y alrededores.
+            </p>
+          </Reveal>
+        </div>
+      </div>
 
-        <div className="max-w-2xl mx-auto">
+      <div className="container-max section-padding !pt-16">
+        <Reveal className="max-w-2xl mx-auto">
           {/* --- FORMULARIO PRINCIPAL (FORMSPREE) --- */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -83,7 +104,7 @@ const ContactSection = () => {
                 placeholder="Tu Nombre"
                 value={formData.name}
                 onChange={handleChange}
-                className="h-14 text-lg border-2 border-gray-200 focus:border-accent"
+                className="h-14 !text-lg border-2 border-gray-200 focus:border-accent"
                 required
               />
             </div>
@@ -95,7 +116,7 @@ const ContactSection = () => {
                 placeholder="tu.email@ejemplo.com"
                 value={formData.email}
                 onChange={handleChange}
-                className="h-14 text-lg border-2 border-gray-200 focus:border-accent"
+                className="h-14 !text-lg border-2 border-gray-200 focus:border-accent"
                 required
               />
             </div>
@@ -106,7 +127,7 @@ const ContactSection = () => {
                 placeholder="Cuéntanos sobre tu proyecto..."
                 value={formData.message}
                 onChange={handleChange}
-                className="min-h-32 text-lg border-2 border-gray-200 focus:border-accent resize-none"
+                className="min-h-32 !text-lg border-2 border-gray-200 focus:border-accent resize-none"
                 required
               />
             </div>
@@ -136,7 +157,7 @@ const ContactSection = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
